@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="node_modules/vue/dist/vue.global.js"></script>
+        <style>
+
+            .one{
+                width:100px;
+                height: 100px;
+                border: 2px solid purple;
+            }
+    
+            .two{
+                background-color: skyblue;
+            }
+    
+        </style>
+    </head>
+    <body>
+
+        <!--这里面就是view-->
+        <div id="app">
+            <div v-bind:class="oneClass">
+                v-bind一般用来绑定class\style
+               </div> 
+               
+               <div v-bind:class="[oneClass,twoClass]">
+                   v-bind一般用来绑定class\style
+               </div>
+           
+               <div :class="{'one':hasOne,'two':hasTwo}">
+                   v-bind一般用来绑定class\style
+               </div>
+
+            </div>
+            
+        </div>
+
+    </body>
+
+    <script>
+        //开发步骤
+            //导入vue的依赖
+            //编写view
+            //查看文档创建Vue对象
+ 
+        //就是代表M
+        const param = {
+            data() {
+                return {
+
+                    oneClass:"one",
+                twoClass:"two",
+
+                hasOne:true,
+                hasTwo:false
+
+                }
+            },
+            methods:{
+
+            }
+        }
+
+        //Vue.createApp 创建一个Vue实例
+        //mount:当前Vue实例和标签绑定,绑定之后标签里面就可以使用vue的语法
+        Vue.createApp(param).mount('#app');
+    </script>
+</html>

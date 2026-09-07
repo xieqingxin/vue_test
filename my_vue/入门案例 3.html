@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="node_modules/vue/dist/vue.global.js"></script>
+    </head>
+    <body>
+
+        <!--这里面就是view-->
+        <div id="app">
+
+            <fieldset>
+
+                <legend>select 的双向绑定</legend>
+                <select v-model="language">
+                    <option value="1">java</option>
+                    <option value="2">C</option>
+                    <option value="3">html</option>
+                </select>
+
+                选择的是:{{language}}<br/>
+
+                <select v-model="hobby" multiple="multiple">
+                    <option value="1">羽毛球</option>
+                    <option value="2">篮球</option>
+                    <option value="3">乒乓球</option>
+                </select>
+
+                选择的是:{{hobby.join("-")}}<br/>
+            </fieldset>
+
+            <fieldset>
+                <legend>radio 的双向绑定</legend>
+                <input type="radio" value="1" v-model="sex" name="sex">男<br/>
+                <input type="radio" value="2" v-model="sex" name="sex">女<br/>
+                选择的是:{{sex==1?'男':'女'}}<br/>
+            </fieldset>
+
+            <fieldset>
+                <legend>checkbox 的双向绑定</legend>
+                <input type="checkbox" value="1" v-model="hobby" name="hobby">羽毛球<br/>
+                <input type="checkbox" value="2" v-model="hobby" name="hobby">篮球<br/>
+                <input type="checkbox" value="3" v-model="hobby" name="hobby">乒乓球<br/>
+                选择的是:{{hobby}}<br/>
+            </fieldset>
+
+            <fieldset>
+                <legend>textarea 的双向绑定</legend>
+                <textarea v-model="content"></textarea>
+                选择的是:{{content}}<br/>
+            </fieldset>
+        </div>
+
+    </body>
+
+    <script>
+        //开发步骤
+            //导入vue的依赖
+            //编写view
+            //查看文档创建Vue对象
+ 
+        //就是代表M
+        const param = {
+            data() {
+                return {
+                    language:2,
+                    hobby:[1,2],
+                    sex:2,
+                    content:"hello"
+                }
+            },
+            methods:{
+
+            }
+        }
+
+        //Vue.createApp 创建一个Vue实例
+        //mount:当前Vue实例和标签绑定,绑定之后标签里面就可以使用vue的语法
+        Vue.createApp(param).mount('#app');
+    </script>
+</html>

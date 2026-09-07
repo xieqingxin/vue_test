@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="node_modules/vue/dist/vue.global.js"></script>
+    </head>
+    <body>
+
+        <!--这里面就是view-->
+        <div id="app">
+            <div>
+                <table style="width: 80%;border: 1px;">
+                    <thead style="height: 35px;border-bottom: solid 1px; text-align: center;">
+                        <th>
+                            <li>id</li>
+                            <li>name</li>
+                            <li>age</li>
+                            <li>操作</li>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <template v-for="user in userList">
+                            <li>{{user.id}}</li>
+                            <li>{{user.name}}</li>
+                            <li>{{user.age}}</li>
+                            <li></li>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+        //开发步骤
+            //导入vue的依赖
+            //编写view
+            //查看文档创建Vue对象
+ 
+        //就是代表M
+        const param = {
+            data() {
+                return {
+                    userList:[{id:1,name:"zs",age:10},{id:2,name:"ls",age:20}]
+                }
+            },
+            methods:{
+
+            }
+        }
+
+        //Vue.createApp 创建一个Vue实例
+        //mount:当前Vue实例和标签绑定,绑定之后标签里面就可以使用vue的语法
+        Vue.createApp(param).mount('#app');
+    </script>
+</html>

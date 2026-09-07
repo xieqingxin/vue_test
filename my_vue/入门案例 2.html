@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="node_modules/vue/dist/vue.global.js"></script>
+    </head>
+    <body>
+
+        <!--这里面就是view-->
+        <div id="app">
+            <input type="text" v-model="age"><br/>
+            {{age}}
+        </div>
+
+    </body>
+
+    <script>
+        //开发步骤
+            //导入vue的依赖
+            //编写view
+            //查看文档创建Vue对象
+ 
+        //就是代表M
+        const param = {
+            data() {
+                return {
+                    age:10
+                }
+            },
+            methods:{
+
+            }
+        }
+
+        //Vue.createApp 创建一个Vue实例
+        //mount:当前Vue实例和标签绑定,绑定之后标签里面就可以使用vue的语法
+        Vue.createApp(param).mount('#app');
+    </script>
+</html>
